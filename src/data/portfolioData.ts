@@ -7,9 +7,11 @@ export interface PersonalInfo {
   availabilityStatus: string;
   university: string;
   degree: string;
+  cgpa: string;
   expectedGraduation: string;
   location: string;
   email: string;
+  phone: string;
   githubUrl: string;
   linkedinUrl: string;
   resumeUrl: string;
@@ -19,17 +21,12 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Backend & Systems' | 'Web & Algorithms' | 'AI & Tools' | 'Full-Stack Web';
+  category: 'Full Stack Web' | 'Android & Security' | 'Mobile & Cloud';
+  period: string;
   description: string;
-  longDescription: string;
   technologies: string[];
   architectureHighlights: string[];
   features: string[];
-  codeSnippet?: {
-    language: string;
-    filename: string;
-    code: string;
-  };
   githubUrl: string;
   liveUrl?: string;
   featured: boolean;
@@ -44,42 +41,39 @@ export interface SkillCategory {
   }[];
 }
 
-export interface ExperienceItem {
+export interface LeadershipItem {
   id: string;
   role: string;
   organization: string;
+  period?: string;
+  description: string;
+}
+
+export interface EducationEntry {
+  institution: string;
+  degree: string;
   location: string;
   period: string;
-  type: 'Academic / Project' | 'Internship' | 'Leadership';
-  points: string[];
+  score: string;
 }
 
 export interface EducationInfo {
-  institution: string;
-  degree: string;
-  major: string;
-  location: string;
-  period: string;
-  expectedGraduation: string;
-  highlights: string[];
-  coursework: {
-    category: string;
-    subjects: string[];
-  }[];
+  current: EducationEntry;
+  prior: EducationEntry[];
+  coursework: string[];
 }
 
 export interface AchievementItem {
   title: string;
   category: string;
   description: string;
-  date?: string;
 }
 
 export const portfolioData: {
   personalInfo: PersonalInfo;
   projects: Project[];
   skillCategories: SkillCategory[];
-  experience: ExperienceItem[];
+  leadership: LeadershipItem[];
   education: EducationInfo;
   achievements: AchievementItem[];
 } = {
@@ -87,305 +81,210 @@ export const portfolioData: {
     name: "Jayam Shanmukha Shivanvitha",
     shortName: "Shivanvitha",
     title: "Computer Science & Engineering Student",
-    tagline: "Building software, exploring AI applications, and sharpening core computer science fundamentals.",
+    tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru. CGPA: 9.88 / 10.",
     bio: [
-      "I am a Computer Science & Engineering student at BMS College of Engineering, Bengaluru, pursuing a B.Tech in CSE.",
-      "My technical interests lie in backend development, software system design, algorithms, and practical applications of Artificial Intelligence.",
-      "I focus on writing clean, maintainable code, understanding core computer science principles from first principles, and building meaningful projects that solve real-world problems."
+      "I am a Computer Science & Engineering undergraduate at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.88 / 10 (till III Semester).",
+      "My technical work spans full-stack web systems (Next.js, React, PostgreSQL, Supabase), mobile applications (Flutter, Firebase), and security tools (Android, Django, Python AST analysis).",
+      "I am actively involved in technical communities as an Organizing Committee member for IEEE Computer Society BMSCE and a member of Pentagram (Mathematical Society of BMSCE)."
     ],
     availabilityStatus: "Seeking Summer / Fall 2026 Software Engineering & Technology Internships",
     university: "BMS College of Engineering, Bengaluru",
-    degree: "B.Tech in Computer Science and Engineering",
+    degree: "B.E. in Computer Science & Engineering",
+    cgpa: "9.88 / 10 (Till III Semester)",
     expectedGraduation: "2028",
-    location: "Bengaluru, Karnataka, India",
-    email: "shivanvitha.jayams@gmail.com",
+    location: "Bengaluru, Karnataka",
+    email: "jayamshanmukha.cs4@bmsce.ac.in",
+    phone: "+91-6304177463",
     githubUrl: "https://github.com/shivanvithajayam",
     linkedinUrl: "https://linkedin.com/in/shivanvithajayam",
-    resumeUrl: "#" // Replace with direct link to your PDF resume (e.g., "/resume.pdf")
+    resumeUrl: "#"
   },
 
   projects: [
     {
-      id: "task-queue-system",
-      title: "Distributed Task Queue & Worker Pool",
-      subtitle: "Asynchronous job execution engine with worker pools and retry logic",
-      category: "Backend & Systems",
-      description: "A concurrent background job execution engine designed to handle asynchronous task processing with task retries, priority handling, and worker pool management.",
-      longDescription: "Built to understand concurrency patterns and distributed task handling from the ground up. The system processes background jobs asynchronously using worker pools, persisting task state in Redis and executing worker routines safely with channels and mutex locks.",
-      technologies: ["Go", "Redis", "Docker", "REST API", "Concurrency"],
+      id: "bloodline-system",
+      title: "BloodLine – Blood Bank Management System",
+      subtitle: "Full-stack web application for blood donor & inventory coordination",
+      category: "Full Stack Web",
+      period: "Sep 2025 – Jan 2026",
+      description: "A comprehensive full-stack blood bank management system built to streamline donor, patient, and blood inventory workflows with role-based controls and real-time tracking.",
+      technologies: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "Vercel"],
       architectureHighlights: [
-        "Channel-driven worker pool for bounded concurrency control",
-        "Redis-backed task state persistence for crash fault tolerance",
-        "Exponential backoff retry mechanism for failed jobs",
-        "Dead-letter queue (DLQ) for non-recoverable tasks"
+        "Role-based access control for administrators, blood banks, donors, and patients",
+        "Real-time blood inventory tracking and inter-blood bank request workflows",
+        "Automated blood cross-matching and transfer coordination",
+        "Deployed on Vercel with PostgreSQL database management via Supabase"
       ],
       features: [
-        "REST API endpoints to submit, inspect, and cancel background tasks",
-        "Configurable worker pool size and execution concurrency",
-        "Real-time task state monitoring (Pending, Running, Completed, Failed)",
-        "Docker Compose setup for easy local deployment"
+        "Donor and patient profile management with medical eligibility verification",
+        "Interactive analytics dashboards monitoring blood unit availability by type",
+        "Real-time notifications for critical blood requests and transfer status updates"
       ],
-      codeSnippet: {
-        language: "go",
-        filename: "worker_pool.go",
-        code: `type WorkerPool struct {
-	MaxWorkers int
-	TaskQueue  chan Task
-	WorkerQueue chan chan Task
-	Quit        chan bool
-}
-
-func (wp *WorkerPool) Start() {
-	for i := 0; i < wp.MaxWorkers; i++ {
-		worker := NewWorker(i, wp.WorkerQueue)
-		worker.Start()
-	}
-	go wp.dispatch()
-}`
-      },
-      githubUrl: "https://github.com/shivanvithajayam/distributed-task-queue",
+      githubUrl: "https://github.com/shivanvithajayam",
       featured: true
     },
     {
-      id: "pathfinding-visualizer",
-      title: "Algorithmic Pathfinding & Graph Visualizer",
-      subtitle: "Interactive spatial algorithm exploration & benchmarking tool",
-      category: "Web & Algorithms",
-      description: "An interactive web tool to visualize and compare graph search algorithms including Dijkstra's, A* Search, Breadth-First Search (BFS), and Depth-First Search (DFS).",
-      longDescription: "Designed as an educational project to visualize classical graph algorithms. Users can draw custom wall obstacles, place start and target nodes, adjust animation speeds, and benchmark path costs and visited node metrics in real time.",
-      technologies: ["TypeScript", "React", "Tailwind CSS", "Data Structures"],
+      id: "fake-app-detection",
+      title: "Fake App Detection – Android Security Application",
+      subtitle: "Android security system using app metadata & Django fraud scoring",
+      category: "Android & Security",
+      period: "Dec 2025",
+      description: "An Android application backed by a Django API that detects fake or malicious applications using multi-layered metadata and permission analysis.",
+      technologies: ["Android", "Django", "Python", "Security Analysis"],
       architectureHighlights: [
-        "Min-Heap priority queue implementation for efficient Dijkstra and A* node evaluation",
-        "Manhattan and Euclidean distance heuristic options for A* Search",
-        "Step-by-step state serialization enabling smooth execution step controls"
+        "Evidence-based fraud risk scoring algorithm evaluating suspicious application metrics",
+        "Publisher identity verification and icon hashing for visual spoofing detection",
+        "Permission analysis engine flagging anomalous system access requests",
+        "Explainable security report generation breaking down risk factors"
       ],
       features: [
-        "Interactive grid board with drag-and-drop start, target, and obstacle placement",
-        "Real-time visualization of visited nodes and optimal path reconstruction",
-        "Algorithm complexity metrics display (nodes visited, path length, execution steps)"
+        "Android device scanner inspecting installed app APK metadata",
+        "Django backend API performing background risk evaluation and scoring",
+        "User-facing detection results page displaying explainable risk indicators"
       ],
-      codeSnippet: {
-        language: "typescript",
-        filename: "dijkstra.ts",
-        code: `export function dijkstra(grid: GridNode[][], startNode: GridNode, finishNode: GridNode) {
-  const visitedNodesInOrder: GridNode[] = [];
-  startNode.distance = 0;
-  const unvisitedNodes = getAllNodes(grid);
-
-  while (unvisitedNodes.length) {
-    sortNodesByDistance(unvisitedNodes);
-    const closestNode = unvisitedNodes.shift()!;
-    if (closestNode.isWall) continue;
-    if (closestNode.distance === Infinity) return visitedNodesInOrder;
-    closestNode.isVisited = true;
-    visitedNodesInOrder.push(closestNode);
-    if (closestNode === finishNode) return visitedNodesInOrder;
-    updateUnvisitedNeighbors(closestNode, grid);
-  }
-}`
-      },
-      githubUrl: "https://github.com/shivanvithajayam/pathfinding-visualizer",
-      liveUrl: "https://pathfinding-visualizer.example.com",
+      githubUrl: "https://github.com/shivanvithajayam",
       featured: true
     },
     {
-      id: "ai-code-analyzer",
-      title: "AI-Assisted Code Review & Security Analyzer",
-      subtitle: "Static code checker leveraging AST parsing and structured LLM feedback",
-      category: "AI & Tools",
-      description: "A developer tool that parses source code files, identifies anti-patterns and potential security risks, and generates structured code review summaries.",
-      longDescription: "Combines rule-based static analysis with AI-powered code explanation. It parses code abstract syntax trees (ASTs) to flag common issues like unused variables and unhandled exceptions before passing code snippets to an AI model for architectural suggestions.",
-      technologies: ["Python", "FastAPI", "Gemini API", "AST Parsing", "Tailwind CSS"],
+      id: "sharebite-app",
+      title: "ShareBite – Surplus Food Donation System",
+      subtitle: "Cross-platform mobile application connecting food donors with NGOs",
+      category: "Mobile & Cloud",
+      period: "Mar 2026 – May 2026",
+      description: "A Flutter and Firebase mobile application designed to connect food donors with nearby NGOs for efficient surplus food distribution and waste reduction.",
+      technologies: ["Flutter", "Firebase", "Firebase Auth", "Cloud Firestore", "Push Notifications"],
       architectureHighlights: [
-        "AST parsing using Python's native ast module for zero-latency static checks",
-        "Structured JSON schema enforcement for AI feedback prompts",
-        "Asynchronous API handling to process file uploads smoothly"
+        "Firebase Authentication and real-time Cloud Firestore synchronization",
+        "Location-based NGO matching algorithm optimizing pickup routing",
+        "NGO donation acceptance and rejection workflow handling",
+        "Push notification system alerting nearby NGOs of new food submissions"
       ],
       features: [
-        "Upload source code files or paste code snippets for instant review",
-        "Categorized feedback breakdown: Security, Performance, and Style",
-        "Clean side-by-side diff view with suggested code fixes"
+        "Donor interface to list surplus food items with expiry and quantity details",
+        "Real-time status tracking for active food donations",
+        "NGO portal to view nearby donation alerts, accept listings, and track history"
       ],
-      codeSnippet: {
-        language: "python",
-        filename: "analyzer.py",
-        code: `import ast
-
-class SecurityVisitor(ast.NodeVisitor):
-    def __init__(self):
-        self.issues = []
-
-    def visit_Exec(self, node):
-        self.issues.append({"line": node.lineno, "type": "Critical", "msg": "Avoid exec() calls"})
-        self.generic_visit(node)
-
-def run_static_analysis(source_code: str):
-    tree = ast.parse(source_code)
-    visitor = SecurityVisitor()
-    visitor.visit(tree)
-    return visitor.issues`
-      },
-      githubUrl: "https://github.com/shivanvithajayam/ai-code-reviewer",
+      githubUrl: "https://github.com/shivanvithajayam",
       featured: true
-    },
-    {
-      id: "inventory-manager",
-      title: "Relational Inventory & Order Management System",
-      subtitle: "Full-stack inventory dashboard with relational database schema",
-      category: "Full-Stack Web",
-      description: "A full-stack web application designed for stock tracking, order placement, supplier management, and low-inventory alert reporting.",
-      longDescription: "Built to practice clean 3-tier software architecture and normalized database design. Supports multi-category item management, automated stock deductions on order processing, and transactional database integrity.",
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS"],
-      architectureHighlights: [
-        "Normalized relational database schema (3NF) designed for inventory integrity",
-        "ACID-compliant database transactions during multi-item order processing",
-        "Server Actions for type-safe data mutations without extra API boilerplate"
-      ],
-      features: [
-        "Dashboard overview with stock count analytics and reorder triggers",
-        "Product catalog with search, categorization, and threshold filtering",
-        "Order creation workflow with real-time stock availability check"
-      ],
-      githubUrl: "https://github.com/shivanvithajayam/inventory-management-system",
-      featured: false
     }
   ],
 
   skillCategories: [
     {
       category: "Programming Languages",
-      description: "Core languages used for problem solving, web backends, and scripting.",
+      description: "Languages used for core computing, software development, and scripting.",
       skills: [
-        { name: "C++", context: "Active Practice" },
-        { name: "Python", context: "Project Experience" },
+        { name: "C", context: "Core Coursework" },
+        { name: "C++", context: "Core Coursework" },
         { name: "Java", context: "Core Coursework" },
-        { name: "TypeScript", context: "Project Experience" },
-        { name: "JavaScript (ES6+)", context: "Project Experience" },
-        { name: "SQL", context: "Core Coursework" }
+        { name: "Python", context: "Project Experience" },
+        { name: "TypeScript", context: "Project Experience" }
       ]
     },
     {
-      category: "Computer Science Core",
-      description: "Fundamental engineering concepts mastered through academic coursework and hands-on practice.",
-      skills: [
-        { name: "Data Structures & Algorithms", context: "Active Practice" },
-        { name: "Object-Oriented Programming (OOP)", context: "Core Coursework" },
-        { name: "Database Management Systems (DBMS)", context: "Core Coursework" },
-        { name: "Operating Systems", context: "Core Coursework" },
-        { name: "Computer Networks", context: "Core Coursework" },
-        { name: "System Design Basics", context: "Active Practice" }
-      ]
-    },
-    {
-      category: "Web & Frameworks",
-      description: "Modern frameworks and tools used to build responsive web applications and APIs.",
+      category: "Frameworks & Development",
+      description: "Web, mobile, and desktop application development frameworks.",
       skills: [
         { name: "React", context: "Project Experience" },
         { name: "Next.js", context: "Project Experience" },
-        { name: "Node.js & Express", context: "Project Experience" },
-        { name: "FastAPI", context: "Project Experience" },
-        { name: "Tailwind CSS", context: "Project Experience" },
-        { name: "HTML5 / CSS3", context: "Project Experience" }
+        { name: "Flutter", context: "Project Experience" },
+        { name: "Django", context: "Project Experience" },
+        { name: "JavaFX", context: "Core Coursework" }
       ]
     },
     {
-      category: "Tools & Developer Ecosystem",
-      description: "Version control, databases, environment tools, and platforms.",
+      category: "Databases & Cloud/Backend",
+      description: "Relational, document, and backend-as-a-service database platforms.",
+      skills: [
+        { name: "PostgreSQL", context: "Project Experience" },
+        { name: "MySQL", context: "Core Coursework" },
+        { name: "MongoDB", context: "Project Experience" },
+        { name: "Supabase", context: "Project Experience" },
+        { name: "Firebase", context: "Project Experience" }
+      ]
+    },
+    {
+      category: "Developer Tools & Systems",
+      description: "Version control tools, IDEs, and operating environments.",
       skills: [
         { name: "Git & GitHub", context: "Project Experience" },
-        { name: "Linux / Bash Basics", context: "Core Coursework" },
-        { name: "PostgreSQL", context: "Project Experience" },
-        { name: "Redis Basics", context: "Project Experience" },
-        { name: "Docker Basics", context: "Project Experience" },
-        { name: "Postman", context: "Project Experience" }
+        { name: "VS Code", context: "Project Experience" },
+        { name: "Android Studio", context: "Project Experience" },
+        { name: "Linux", context: "Core Coursework" },
+        { name: "Windows", context: "Core Coursework" }
       ]
     }
   ],
 
-  experience: [
+  leadership: [
     {
-      id: "academic-projects-bmsce",
-      role: "Computer Science Student & Project Developer",
-      organization: "BMS College of Engineering, Bengaluru",
-      location: "Bengaluru, India",
-      period: "2023 — Present",
-      type: "Academic / Project",
-      points: [
-        "Designed and implemented full-stack and backend software projects adhering to clean code principles and modular architecture.",
-        "Collaborated with student peers on software development assignments using Git version control and GitHub pull request workflows.",
-        "Implemented fundamental data structures (Trees, Graphs, Heaps, Hash Tables) and algorithm solutions in C++ and Python during laboratory coursework."
-      ]
+      id: "ieee-bmsce",
+      role: "Organizing Committee Member",
+      organization: "IEEE Computer Society, BMSCE",
+      description: "Contributed to organizing and managing technical events, workshops, and coding sessions for the BMSCE student community."
     },
     {
-      id: "placeholder-future-internship",
-      role: "[Your Internship / Tech Role Placeholder]",
-      organization: "[Company / Organization Name]",
-      location: "Bengaluru, India / Remote",
-      period: "Upcoming / Target 2026",
-      type: "Internship",
-      points: [
-        "This slot is ready for your software engineering internship, research assistant role, or technical organization experience.",
-        "Easily update this entry in src/data/portfolioData.ts as you secure internship offers or take on leadership roles."
-      ]
+      id: "pentagram-bmsce",
+      role: "Active Member",
+      organization: "Pentagram — Mathematical Society of BMSCE",
+      description: "Participates in mathematical problem-solving sessions, logic puzzles, and quantitative workshops."
+    },
+    {
+      id: "fac-bmsce",
+      role: "Core Committee Member",
+      organization: "FAC (Fine Arts Club), BMSCE",
+      description: "Coordinates campus cultural events, creative activities, and student engagement initiatives."
     }
   ],
 
   education: {
-    institution: "BMS College of Engineering",
-    degree: "B.Tech in Computer Science and Engineering",
-    major: "Computer Science & Engineering",
-    location: "Bengaluru, Karnataka, India",
-    period: "2024 — 2028 (Expected)",
-    expectedGraduation: "May 2028",
-    highlights: [
-      "Pursuing Bachelor of Technology in Computer Science & Engineering at BMSCE Bengaluru",
-      "Focusing on Core Computer Science Fundamentals, Backend Systems, Algorithms, and Software Engineering",
-      "Active participant in technical student communities and coding events"
+    current: {
+      institution: "BMS College of Engineering",
+      degree: "B.E. in Computer Science & Engineering",
+      location: "Bengaluru, Karnataka",
+      period: "2024 — 2028 (Expected)",
+      score: "CGPA: 9.88 / 10 (Till III Semester)"
+    },
+    prior: [
+      {
+        institution: "Narayana Junior College",
+        degree: "Intermediate Education",
+        location: "Anantapur, Andhra Pradesh",
+        period: "2022 — 2024",
+        score: "Percentage: 98%"
+      },
+      {
+        institution: "Sri Chaitanya Techno School",
+        degree: "High School (Class X)",
+        location: "Andhra Pradesh",
+        period: "2021 — 2022",
+        score: "Percentage: 96%"
+      }
     ],
     coursework: [
-      {
-        category: "Core Computing",
-        subjects: [
-          "Data Structures & Algorithms",
-          "Object-Oriented Programming (C++/Java)",
-          "Design & Analysis of Algorithms"
-        ]
-      },
-      {
-        category: "Systems & Infrastructure",
-        subjects: [
-          "Operating Systems",
-          "Database Management Systems (DBMS)",
-          "Computer Networks",
-          "Computer Organization & Architecture"
-        ]
-      },
-      {
-        category: "Software Practice",
-        subjects: [
-          "Software Engineering Principles",
-          "Web Application Development",
-          "Formal Languages & Automata Theory"
-        ]
-      }
+      "Data Structures and Algorithms",
+      "Computer Organization & Architecture",
+      "Object-Oriented Programming",
+      "Operating Systems",
+      "Database Management Systems"
     ]
   },
 
   achievements: [
     {
-      title: "Data Structures & Algorithmic Problem Solving",
-      category: "Problem Solving",
-      description: "Regularly solving algorithmic problems on LeetCode and HackerRank to strengthen problem-solving speed, time-complexity analysis, and edge-case handling."
+      title: "Academic Excellence at BMSCE",
+      category: "Academic Distinction",
+      description: "Achieved a CGPA of 9.88 / 10 through 3 semesters in B.E. Computer Science & Engineering."
     },
     {
-      title: "Open Source & Software Engineering Projects",
-      category: "Projects",
-      description: "Created and published multiple open-source repositories on GitHub focusing on backend systems, algorithmic visualizers, and web utilities."
+      title: "Strong Foundation in Secondary Education",
+      category: "Academic Distinction",
+      description: "Scored 98% in Intermediate (Narayana Junior College) and 96% in High School (Sri Chaitanya Techno School)."
     },
     {
-      title: "College Technical Hackathons & Events",
-      category: "Hackathons",
-      description: "Participated in university coding competitions and hackathon events at BMS College of Engineering, building rapid prototype applications within time limits."
+      title: "IEEE Computer Society Technical Involvement",
+      category: "Leadership & Community",
+      description: "Active Organizing Committee member facilitating technical events and developer workshops at BMSCE."
     }
   ]
 };

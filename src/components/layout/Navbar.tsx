@@ -64,7 +64,7 @@ export default function Navbar() {
               {portfolioData.personalInfo.name}
             </span>
             <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-              B.Tech CSE @ BMSCE
+              B.E. CSE @ BMSCE
             </span>
           </div>
         </a>

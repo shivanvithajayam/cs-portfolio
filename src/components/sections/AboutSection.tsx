@@ -1,29 +1,29 @@
 import { portfolioData } from "@/data/portfolioData";
-import { Server, Cpu, Brain, GitBranch, CheckCircle2 } from "lucide-react";
+import { Layers, ShieldCheck, Smartphone, Users, CheckCircle2 } from "lucide-react";
 
 export default function AboutSection() {
   const { personalInfo } = portfolioData;
 
   const focusAreas = [
     {
-      title: "Backend & Systems Development",
-      description: "Interested in asynchronous processing, concurrent worker pools, API design, and database interaction.",
-      icon: Server
+      title: "Full-Stack Web Development",
+      description: "Building scalable web management platforms using Next.js, React, TypeScript, PostgreSQL, and Supabase.",
+      icon: Layers
     },
     {
-      title: "Algorithms & Problem Solving",
-      description: "Strong focus on fundamental data structures, graph algorithms, and space/time complexity trade-offs.",
-      icon: Cpu
+      title: "Android & Security Applications",
+      description: "Developing mobile security software with Django backends, permission analysis, and risk scoring.",
+      icon: ShieldCheck
     },
     {
-      title: "AI & Practical Applications",
-      description: "Exploring real-world integration of machine learning APIs, static code analysis, and developer tooling.",
-      icon: Brain
+      title: "Mobile App Development",
+      description: "Creating cross-platform mobile apps with Flutter, Firebase Authentication, and real-time Firestore sync.",
+      icon: Smartphone
     },
     {
-      title: "Software Engineering Discipline",
-      description: "Committed to version control workflows (Git/GitHub), modular code design, testing, and documentation.",
-      icon: GitBranch
+      title: "Technical Community & Societies",
+      description: "Organizing Committee member at IEEE Computer Society BMSCE and active member of Pentagram (Math Society).",
+      icon: Users
     }
   ];
 
@@ -41,7 +41,7 @@ export default function AboutSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Main Story Paragraphs */}
+          {/* Main Bio Paragraphs */}
           <div className="lg:col-span-7 space-y-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
             {personalInfo.bio.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
@@ -49,20 +49,20 @@ export default function AboutSection() {
 
             <div className="pt-4 space-y-2">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                Core Engineering Mindset:
+                Academic & Technical Strengths:
               </h3>
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
-                  <span><strong>First-Principles Understanding:</strong> Grasping how memory, operating systems, and network protocols function under the hood.</span>
+                  <span><strong>High Academic Standing:</strong> CGPA of 9.88 / 10 (till III Semester) in B.E. Computer Science & Engineering at BMSCE.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
-                  <span><strong>Readability & Maintainability:</strong> Writing code that peers and teammates can easily review, test, and build upon.</span>
+                  <span><strong>Hands-on Project Execution:</strong> Built production-ready systems including a blood bank management web application, an Android malware detector, and a food donation platform.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
-                  <span><strong>Continuous Learning:</strong> Eager to adapt to new technology stacks and learn from experienced software engineers during internships.</span>
+                  <span><strong>Core CS Mastery:</strong> Data Structures & Algorithms, Operating Systems, Computer Organization & Architecture, and DBMS.</span>
                 </li>
               </ul>
             </div>
@@ -82,7 +82,7 @@ export default function AboutSection() {
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white">
                         {area.title}
                       </h4>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">

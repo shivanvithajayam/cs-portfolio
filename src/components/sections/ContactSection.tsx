@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { Mail, Copy, Check, FileText, Send, MapPin, Sparkles } from "lucide-react";
+import { Mail, Copy, Check, FileText, Send, MapPin, Sparkles, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 
 export default function ContactSection() {
@@ -39,7 +39,7 @@ export default function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            I am actively seeking Software Engineering and Technology Internships for 2026. Feel free to reach out via email, connect on LinkedIn, or drop a message below.
+            I am actively seeking Software Engineering and Technology Internships. Feel free to reach out via email, phone, or connect on LinkedIn/GitHub.
           </p>
         </div>
 
@@ -56,9 +56,9 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                    Direct Email
+                    College Email
                   </h3>
-                  <p className="text-sm font-bold text-slate-900 dark:text-white">
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
                     {personalInfo.email}
                   </p>
                 </div>
@@ -77,7 +77,7 @@ export default function ContactSection() {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Copy Email Address</span>
+                      <span>Copy Email</span>
                     </>
                   )}
                 </button>
@@ -92,14 +92,31 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Resume & Location Info */}
+            {/* Phone & Location Info */}
             <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] space-y-4 shadow-xs">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    Direct Phone
+                  </h3>
+                  <a
+                    href={`tel:${personalInfo.phone}`}
+                    className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-indigo-600 transition-colors"
+                  >
+                    {personalInfo.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 font-medium">
                   <MapPin className="w-4 h-4 text-indigo-500" />
                   <span>{personalInfo.location}</span>
                 </div>
-                <span className="text-[11px] text-slate-400">Open to Relocation / Remote</span>
+                <span className="text-[11px] text-slate-400">BMSCE Campus</span>
               </div>
 
               <a
@@ -116,7 +133,7 @@ export default function ContactSection() {
             {/* Professional Profiles */}
             <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] space-y-3 shadow-xs">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                Professional Network
+                Profiles
               </h3>
               <div className="flex items-center gap-3">
                 <a
@@ -126,7 +143,7 @@ export default function ContactSection() {
                   className="flex-1 flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
-                  <span>GitHub</span>
+                  <span>shivanvithajayam</span>
                 </a>
                 <a
                   href={personalInfo.linkedinUrl}
@@ -135,7 +152,7 @@ export default function ContactSection() {
                   className="flex-1 flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
                 >
                   <LinkedinIcon className="w-4 h-4" />
-                  <span>LinkedIn</span>
+                  <span>shivanvithajayam</span>
                 </a>
               </div>
             </div>
@@ -150,10 +167,10 @@ export default function ContactSection() {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Thank You for Reaching Out!
+                  Message Sent!
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
-                  Your message draft has been received. You can also send a direct email to <strong>{personalInfo.email}</strong>.
+                  Thank you for reaching out. You can also send a direct email to <strong>{personalInfo.email}</strong>.
                 </p>
                 <button
                   onClick={() => {
@@ -168,7 +185,7 @@ export default function ContactSection() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                  Send a Quick Note
+                  Send a Message
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -179,7 +196,7 @@ export default function ContactSection() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Recruiter Name / Engineer"
+                      placeholder="e.g. Recruiter Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
@@ -207,7 +224,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="text"
-                    placeholder="SWE Internship Opportunity / Inquiry"
+                    placeholder="Internship Opportunity / Inquiry"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
@@ -221,7 +238,7 @@ export default function ContactSection() {
                   <textarea
                     required
                     rows={4}
-                    placeholder="Hello Shivanvitha, I saw your portfolio and would like to discuss an internship role..."
+                    placeholder="Hello Shivanvitha, I saw your portfolio and would like to connect regarding an opportunity..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"

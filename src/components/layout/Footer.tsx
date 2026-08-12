@@ -14,7 +14,7 @@ export default function Footer() {
               {portfolioData.personalInfo.name}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              B.Tech Computer Science & Engineering • BMS College of Engineering, Bengaluru
+              B.E. Computer Science & Engineering • BMS College of Engineering, Bengaluru
             </p>
           </div>
 

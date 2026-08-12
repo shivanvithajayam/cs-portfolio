@@ -1,7 +1,7 @@
 "use client";
 
 import { portfolioData } from "@/data/portfolioData";
-import { ArrowRight, Download, Mail, MapPin, GraduationCap, Code2 } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin, GraduationCap, Phone, Award } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 
 export default function HeroSection() {
@@ -9,14 +9,14 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative py-16 sm:py-24 md:py-28 overflow-hidden">
-      {/* Background visual accents */}
+      {/* Subtle background ambient gradients */}
       <div className="absolute top-12 right-1/4 w-96 h-96 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-4 left-10 w-72 h-72 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-6">
           
-          {/* Status Badge */}
+          {/* Availability Status Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs font-medium">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -25,13 +25,13 @@ export default function HeroSection() {
             <span>{personalInfo.availabilityStatus}</span>
           </div>
 
-          {/* Main Headline */}
+          {/* Main Name & Title */}
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
               {personalInfo.name}
             </h1>
             <p className="text-xl sm:text-2xl font-medium text-indigo-600 dark:text-indigo-400">
-              {personalInfo.title}
+              {personalInfo.degree} • CGPA: {personalInfo.cgpa}
             </p>
           </div>
 
@@ -43,19 +43,19 @@ export default function HeroSection() {
             </span>
             <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
             <span className="flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-indigo-500" />
-              <span>{personalInfo.location}</span>
+              <Award className="w-4 h-4 text-indigo-500" />
+              <span>Expected Graduation: {personalInfo.expectedGraduation}</span>
             </span>
             <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
             <span className="flex items-center gap-1.5">
-              <Code2 className="w-4 h-4 text-indigo-500" />
-              <span>B.Tech CSE (Expected {personalInfo.expectedGraduation})</span>
+              <MapPin className="w-4 h-4 text-indigo-500" />
+              <span>{personalInfo.location}</span>
             </span>
           </div>
 
-          {/* Pitch Paragraph */}
+          {/* Intro Paragraph */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-            {personalInfo.tagline} Focused on writing clean code, building reliable software systems, and applying computer science principles to practical engineering challenges.
+            {personalInfo.tagline} Building full-stack web applications, mobile apps, and security applications with clean architecture and modern development practices.
           </p>
 
           {/* Action CTAs */}
@@ -64,7 +64,7 @@ export default function HeroSection() {
               href="#projects"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm transition-all shadow-sm hover:shadow"
             >
-              <span>View Selected Projects</span>
+              <span>View Projects</span>
               <ArrowRight className="w-4 h-4" />
             </a>
 
@@ -73,7 +73,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium text-sm border border-slate-200 dark:border-slate-700/80 transition-colors"
             >
               <Mail className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-              <span>Contact Me</span>
+              <span>Get in Touch</span>
             </a>
 
             <a
@@ -87,27 +87,42 @@ export default function HeroSection() {
             </a>
           </div>
 
-          {/* Direct Social Links */}
-          <div className="pt-4 flex items-center gap-4 text-slate-500 dark:text-slate-400 text-xs">
-            <span className="font-semibold uppercase tracking-wider text-[11px] text-slate-400 dark:text-slate-500">Profiles:</span>
+          {/* Direct Links */}
+          <div className="pt-4 flex flex-wrap items-center gap-4 text-slate-500 dark:text-slate-400 text-xs font-medium">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>{personalInfo.email}</span>
+            </a>
+            <span>•</span>
+            <a
+              href={`tel:${personalInfo.phone}`}
+              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>{personalInfo.phone}</span>
+            </a>
+            <span>•</span>
             <a
               href={personalInfo.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <GithubIcon className="w-3.5 h-3.5" />
-              <span>github.com/shivanvithajayam</span>
+              <span>shivanvithajayam</span>
             </a>
             <span>•</span>
             <a
               href={personalInfo.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               <LinkedinIcon className="w-3.5 h-3.5" />
-              <span>linkedin.com/in/shivanvithajayam</span>
+              <span>shivanvithajayam</span>
             </a>
           </div>
 

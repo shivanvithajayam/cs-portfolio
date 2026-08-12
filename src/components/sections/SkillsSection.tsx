@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { portfolioData, SkillCategory } from "@/data/portfolioData";
-import { Search, Code, Cpu, Globe, Wrench } from "lucide-react";
+import { Search, Code, Globe, Database, Wrench } from "lucide-react";
 
 export default function SkillsSection() {
   const { skillCategories } = portfolioData;
@@ -10,9 +10,9 @@ export default function SkillsSection() {
 
   const categoryIcons: Record<string, typeof Code> = {
     "Programming Languages": Code,
-    "Computer Science Core": Cpu,
-    "Web & Frameworks": Globe,
-    "Tools & Developer Ecosystem": Wrench,
+    "Frameworks & Development": Globe,
+    "Databases & Cloud/Backend": Database,
+    "Developer Tools & Systems": Wrench,
   };
 
   const getContextBadgeStyle = (context: string) => {
@@ -36,19 +36,19 @@ export default function SkillsSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Technical Skills & Fundamentals
+              Technical Skills & Tools
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Categorized technical competencies with practical context instead of percentage bars.
+              Verified skills supported directly by course work and software projects.
             </p>
           </div>
 
-          {/* Quick Filter Search Input */}
+          {/* Search Input */}
           <div className="relative w-full md:w-64">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder="Search skills (e.g. C++, Python, SQL)..."
+              placeholder="Search skills (e.g. C++, React, PostgreSQL)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-3 py-1.5 rounded-lg text-xs bg-white dark:bg-[#131c31] border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
@@ -66,10 +66,6 @@ export default function SkillsSection() {
           <span className="inline-flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
             <span>Project Experience</span>
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>Active Practice (LeetCode / DSA)</span>
           </span>
         </div>
 

@@ -95,7 +95,7 @@ export const portfolioData: {
     email: "shivanvithajayam@gmail.com",
     githubUrl: "https://github.com/shivanvithajayam",
     linkedinUrl: "https://linkedin.com/in/shivanvithajayam",
-    resumeUrl: "#"
+    resumeUrl: "/resume.pdf"
   },
 
   projects: [

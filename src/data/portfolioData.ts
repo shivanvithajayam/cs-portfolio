@@ -128,7 +128,7 @@ export const portfolioData: {
       category: "Desktop & Java",
       period: "2025",
       description: "Developed a JavaFX-based expense tracking application supporting CSV-based logging, automated DOCX/PPTX report generation, and a modular project structure built on Object-Oriented Programming (OOP) principles.",
-      technologies: ["Java", "JavaFX", "CSV Logging", "Apache POI", "OOP Principles"],
+      technologies: ["Java", "JavaFX", "CSV Logging", "DOCX & PPTX Export", "OOP Principles"],
       architectureHighlights: [
         "CSV-based transaction logging and persistent expense record management",
         "Automated DOCX and PPTX financial summary report generation",

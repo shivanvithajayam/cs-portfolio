@@ -11,7 +11,6 @@ export interface PersonalInfo {
   expectedGraduation: string;
   location: string;
   email: string;
-  phone: string;
   githubUrl: string;
   linkedinUrl: string;
   resumeUrl: string;
@@ -82,18 +81,18 @@ export const portfolioData: {
     title: "Computer Science & Engineering Student",
     tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru. CGPA: 9.9 / 10.",
     bio: [
-      "I am a Computer Science & Engineering undergraduate at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.9 / 10 (till IV Semester).",
-      "My technical work spans full-stack web systems (Next.js, React, PostgreSQL, Supabase), mobile applications (Flutter, Firebase), and security tools (Android, Django, Python AST analysis).",
-      "I am actively involved in technical communities as an Organizing Committee member for IEEE Computer Society BMSCE and a member of Pentagram (Mathematical Society of BMSCE)."
+      "I am an undergraduate student pursuing my Bachelor of Engineering (B.E.) in Computer Science & Engineering at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.9 / 10 (till IV Semester).",
+      "My technical journey is driven by a deep curiosity for how software systems work from the inside out. I specialize in building full-stack web applications, mobile platforms, and security analysis utilities. My project portfolio includes BloodLine (a Next.js and PostgreSQL blood bank management platform), ShareBite (a Flutter and Firebase surplus food distribution app), Fake App Detection (an Android malware detection tool with Django backend), and ExpenseGo (a React finance tracker).",
+      "Beyond writing code, I strongly value core computer science fundamentals—Data Structures & Algorithms, Operating Systems, Database Systems, and Computer Architecture. I approach problem-solving with a focus on code readability, modularity, and scalability.",
+      "I actively participate in technical and academic campus communities. I serve as an Organizing Committee member for the IEEE Computer Society BMSCE, a member of Pentagram (the Mathematical Society of BMSCE), and a Core Committee member of the Fine Arts Club (FAC), organizing technical workshops and campus events."
     ],
-    availabilityStatus: "Seeking Summer / Fall 2026 Software Engineering & Technology Internships",
+    availabilityStatus: "Open to Opportunities & Technical Collaborations",
     university: "BMS College of Engineering, Bengaluru",
     degree: "B.E. in Computer Science & Engineering",
     cgpa: "9.9 / 10 (Till IV Semester)",
     expectedGraduation: "2028",
     location: "Bengaluru, Karnataka",
     email: "shivanvithajayam@gmail.com",
-    phone: "+91-6304177463",
     githubUrl: "https://github.com/shivanvithajayam",
     linkedinUrl: "https://linkedin.com/in/shivanvithajayam",
     resumeUrl: "#"

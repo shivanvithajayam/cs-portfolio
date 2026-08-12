@@ -57,7 +57,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-500 gap-2">
           <p>© {new Date().getFullYear()} Jayam Shanmukha Shivanvitha. Built with Next.js, TypeScript & Tailwind CSS.</p>
-          <p className="font-mono text-[11px]">Designed for SWE Internship Applications</p>
+          <p className="font-mono text-[11px]">Personal Engineering Portfolio</p>
         </div>
       </div>
     </footer>

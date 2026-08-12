@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { Mail, Copy, Check, FileText, Send, MapPin, Sparkles, Phone } from "lucide-react";
+import { Mail, Copy, Check, FileText, Send, MapPin, Sparkles } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 
 export default function ContactSection() {
@@ -39,7 +39,7 @@ export default function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            I am actively seeking Software Engineering and Technology Internships. Feel free to reach out via email, phone, or connect on LinkedIn/GitHub.
+            Feel free to reach out via email, connect on LinkedIn/GitHub, or send a message below.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                    College Email
+                    Email Address
                   </h3>
                   <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
                     {personalInfo.email}
@@ -92,26 +92,9 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Phone & Location Info */}
+            {/* Location & Resume Info */}
             <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] space-y-4 shadow-xs">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                    Direct Phone
-                  </h3>
-                  <a
-                    href={`tel:${personalInfo.phone}`}
-                    className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-indigo-600 transition-colors"
-                  >
-                    {personalInfo.phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 font-medium">
                   <MapPin className="w-4 h-4 text-indigo-500" />
                   <span>{personalInfo.location}</span>
@@ -196,7 +179,7 @@ export default function ContactSection() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Recruiter Name"
+                      placeholder="e.g. Alex Morgan"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
@@ -210,7 +193,7 @@ export default function ContactSection() {
                     <input
                       type="email"
                       required
-                      placeholder="recruiter@company.com"
+                      placeholder="you@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
@@ -224,7 +207,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Internship Opportunity / Inquiry"
+                    placeholder="Project Collaboration / General Inquiry"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
@@ -238,7 +221,7 @@ export default function ContactSection() {
                   <textarea
                     required
                     rows={4}
-                    placeholder="Hello Shivanvitha, I saw your portfolio and would like to connect regarding an opportunity..."
+                    placeholder="Hello Shivanvitha, I would like to connect with you regarding..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"

@@ -1,7 +1,7 @@
 "use client";
 
 import { portfolioData } from "@/data/portfolioData";
-import { ArrowRight, Download, Mail, MapPin, GraduationCap, Phone, Award } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin, GraduationCap, Award } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 
 export default function HeroSection() {
@@ -55,7 +55,7 @@ export default function HeroSection() {
 
           {/* Intro Paragraph */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-            {personalInfo.tagline} Building full-stack web applications, mobile apps, and security applications with clean architecture and modern development practices.
+            {personalInfo.tagline} Building full-stack web applications, mobile apps, and security tools with clean architecture and modern software engineering practices.
           </p>
 
           {/* Action CTAs */}
@@ -95,14 +95,6 @@ export default function HeroSection() {
             >
               <Mail className="w-3.5 h-3.5" />
               <span>{personalInfo.email}</span>
-            </a>
-            <span>•</span>
-            <a
-              href={`tel:${personalInfo.phone}`}
-              className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>{personalInfo.phone}</span>
             </a>
             <span>•</span>
             <a

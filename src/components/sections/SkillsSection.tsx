@@ -18,18 +18,16 @@ export default function SkillsSection() {
   const getContextBadgeStyle = (context: string) => {
     switch (context) {
       case "Core Coursework":
-        return "bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/60";
+        return "bg-slate-100 dark:bg-[#1f2937] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
       case "Project Experience":
-        return "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/60";
-      case "Active Practice":
-        return "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60";
+        return "bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/60";
       default:
-        return "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
+        return "bg-slate-100 dark:bg-[#1f2937] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
     }
   };
 
   return (
-    <section id="skills" className="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-[#0c1220]/40 transition-colors duration-200">
+    <section id="skills" className="py-16 sm:py-20 border-t border-slate-200 dark:border-[#1f2937] bg-slate-50/50 dark:bg-[#0f172a]/40 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -39,7 +37,7 @@ export default function SkillsSection() {
               Technical Skills & Tools
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Verified skills supported directly by course work and software projects.
+              Verified skills supported directly by coursework and software projects.
             </p>
           </div>
 
@@ -51,20 +49,20 @@ export default function SkillsSection() {
               placeholder="Search skills (e.g. C++, React, PostgreSQL)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 rounded-lg text-xs bg-white dark:bg-[#131c31] border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full pl-9 pr-3 py-1.5 rounded-lg text-xs bg-white dark:bg-[#111827] border border-slate-200 dark:border-[#1f2937] text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap items-center gap-4 mb-8 text-xs font-medium text-slate-600 dark:text-slate-400 bg-white dark:bg-[#131c31] p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+        <div className="flex flex-wrap items-center gap-4 mb-8 text-xs font-medium text-slate-600 dark:text-slate-400 bg-white dark:bg-[#111827] p-3 rounded-xl border border-slate-200 dark:border-[#1f2937]">
           <span className="font-semibold text-slate-700 dark:text-slate-300">Legend / Context:</span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-500"></span>
             <span>Core Coursework (BMSCE)</span>
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
+            <span className="w-2 h-2 rounded-full bg-blue-500"></span>
             <span>Project Experience</span>
           </span>
         </div>
@@ -83,10 +81,10 @@ export default function SkillsSection() {
             return (
               <div
                 key={cat.category}
-                className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] space-y-4 shadow-xs"
+                className="p-6 rounded-2xl border border-slate-200 dark:border-[#1f2937] bg-white dark:bg-[#111827] space-y-4 shadow-xs"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                  <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
@@ -103,7 +101,7 @@ export default function SkillsSection() {
                   {matchingSkills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="group relative flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 text-xs font-medium text-slate-800 dark:text-slate-200 hover:border-indigo-500/50 transition-colors"
+                      className="group relative flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-[#1f2937] bg-slate-50/50 dark:bg-[#0b1120] text-xs font-medium text-slate-800 dark:text-slate-200 hover:border-blue-500/50 transition-colors"
                     >
                       <span className="font-semibold">{skill.name}</span>
                       <span

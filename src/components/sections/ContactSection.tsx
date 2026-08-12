@@ -30,7 +30,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section id="contact" className="py-16 sm:py-24 border-t border-slate-200 dark:border-[#1f2937] transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -49,9 +49,9 @@ export default function ContactSection() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Email Card with Copy Action */}
-            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] space-y-4 shadow-xs">
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-[#1f2937] bg-white dark:bg-[#111827] space-y-4 shadow-xs">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -67,7 +67,7 @@ export default function ContactSection() {
               <div className="flex items-center gap-2 pt-1">
                 <button
                   onClick={handleCopyEmail}
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-medium transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 dark:bg-[#1f2937] hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-medium transition-colors"
                 >
                   {copied ? (
                     <>
@@ -84,7 +84,7 @@ export default function ContactSection() {
 
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-medium transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
@@ -93,7 +93,7 @@ export default function ContactSection() {
             </div>
 
             {/* Professional Profiles */}
-            <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] space-y-3 shadow-xs">
+            <div className="p-6 rounded-2xl border border-slate-200 dark:border-[#1f2937] bg-white dark:bg-[#111827] space-y-3 shadow-xs">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 Profiles
               </h3>
@@ -102,7 +102,7 @@ export default function ContactSection() {
                   href={personalInfo.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
+                  className="flex-1 flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 dark:border-[#1f2937] hover:border-blue-500 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>shivanvithajayam</span>
@@ -111,7 +111,7 @@ export default function ContactSection() {
                   href={personalInfo.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
+                  className="flex-1 flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 dark:border-[#1f2937] hover:border-blue-500 text-xs font-medium text-slate-800 dark:text-slate-200 transition-colors"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                   <span>shivanvithajayam</span>
@@ -122,7 +122,7 @@ export default function ContactSection() {
           </div>
 
           {/* Interactive Message Form */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] shadow-xs">
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-[#1f2937] bg-white dark:bg-[#111827] shadow-xs">
             {submitted ? (
               <div className="text-center py-12 space-y-3">
                 <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
@@ -139,7 +139,7 @@ export default function ContactSection() {
                     setSubmitted(false);
                     setFormData({ name: "", email: "", subject: "", message: "" });
                   }}
-                  className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline pt-2"
+                  className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline pt-2"
                 >
                   Send another message
                 </button>
@@ -161,7 +161,7 @@ export default function ContactSection() {
                       placeholder="e.g. Alex Morgan"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                      className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-[#0b1120] border border-slate-200 dark:border-[#1f2937] text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"
                     />
                   </div>
 
@@ -175,7 +175,7 @@ export default function ContactSection() {
                       placeholder="you@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                      className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-[#0b1120] border border-slate-200 dark:border-[#1f2937] text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"
                     />
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export default function ContactSection() {
                     placeholder="Project Collaboration / General Inquiry"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-[#0b1120] border border-slate-200 dark:border-[#1f2937] text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
 
@@ -203,14 +203,14 @@ export default function ContactSection() {
                     placeholder="Hello Shivanvitha, I would like to connect with you regarding..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                    className="w-full px-3 py-2 rounded-lg text-xs bg-slate-50 dark:bg-[#0b1120] border border-slate-200 dark:border-[#1f2937] text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition-colors shadow-sm disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-colors shadow-xs disabled:opacity-50"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{isSubmitting ? "Submitting..." : "Send Message"}</span>

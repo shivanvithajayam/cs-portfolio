@@ -11,7 +11,6 @@ export default function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
-    // Sync dark class with document tag
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
@@ -51,16 +50,16 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#090d16]/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0b1120]/80 border-b border-slate-200 dark:border-[#1f2937] transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand Header */}
         <a href="#hero" className="group flex items-center gap-2.5 text-left focus:outline-none">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 dark:bg-indigo-500 text-white flex items-center justify-center font-bold text-sm shadow-sm group-hover:bg-indigo-700 transition-colors">
+          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-xs group-hover:bg-blue-500 transition-colors">
             JS
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-tight tracking-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+            <span className="font-semibold text-slate-900 dark:text-slate-100 text-sm sm:text-base leading-tight tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {portfolioData.personalInfo.name}
             </span>
             <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
@@ -77,8 +76,8 @@ export default function Navbar() {
               href={link.href}
               className={`px-3 py-1.5 rounded-md transition-colors ${
                 activeSection === link.id
-                  ? "text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950/40"
-                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/40"
+                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#111827]"
               }`}
             >
               {link.name}
@@ -88,13 +87,12 @@ export default function Navbar() {
 
         {/* Actions & Links */}
         <div className="flex items-center gap-2">
-          {/* GitHub / LinkedIn quick links */}
           <a
             href={portfolioData.personalInfo.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-[#111827] transition-colors"
           >
             <GithubIcon className="w-4 h-4" />
           </a>
@@ -103,7 +101,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
-            className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-[#111827] transition-colors"
           >
             <LinkedinIcon className="w-4 h-4" />
           </a>
@@ -112,7 +110,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
             aria-label="Toggle dark/light mode"
-            className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-[#111827] transition-colors"
           >
             {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
@@ -122,7 +120,7 @@ export default function Navbar() {
             href={portfolioData.personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition-colors shadow-sm ml-1"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-xs ml-1"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
@@ -132,7 +130,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle navigation menu"
-            className="md:hidden p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="md:hidden p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-[#111827]"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -141,7 +139,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] px-4 pt-2 pb-4 space-y-1">
+        <div className="md:hidden border-b border-slate-200 dark:border-[#1f2937] bg-white dark:bg-[#0b1120] px-4 pt-2 pb-4 space-y-1">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -149,19 +147,19 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 activeSection === link.id
-                  ? "text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-950/40"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/40"
+                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#111827]"
               }`}
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <div className="pt-2 border-t border-slate-200 dark:border-[#1f2937] flex items-center justify-between">
             <a
               href={portfolioData.personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-indigo-600 text-white w-full justify-center"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 text-white w-full justify-center"
             >
               <FileText className="w-4 h-4" />
               <span>Download Resume</span>

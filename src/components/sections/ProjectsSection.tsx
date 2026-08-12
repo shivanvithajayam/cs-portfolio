@@ -16,7 +16,7 @@ export default function ProjectsSection() {
     : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section id="projects" className="py-16 sm:py-20 border-t border-slate-200 dark:border-[#1f2937] transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
@@ -31,14 +31,14 @@ export default function ProjectsSection() {
           </div>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-800/60 p-1 rounded-xl text-xs font-medium border border-slate-200 dark:border-slate-700/60">
+          <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-[#111827] p-1 rounded-xl text-xs font-medium border border-slate-200 dark:border-[#1f2937]">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-1.5 rounded-lg transition-colors ${
                   selectedCategory === cat
-                    ? "bg-white dark:bg-indigo-600 text-slate-900 dark:text-white shadow-xs font-semibold"
+                    ? "bg-white dark:bg-blue-600 text-slate-900 dark:text-white shadow-xs font-semibold"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
@@ -49,17 +49,17 @@ export default function ProjectsSection() {
         </div>
 
         {/* Projects Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredProjects.map((project: Project) => (
             <div
               key={project.id}
-              className="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#131c31] overflow-hidden hover:border-slate-300 dark:hover:border-slate-700 transition-colors shadow-xs"
+              className="flex flex-col rounded-2xl border border-slate-200 dark:border-[#1f2937] bg-white dark:bg-[#111827] overflow-hidden hover:border-slate-300 dark:hover:border-slate-700 transition-colors shadow-xs"
             >
               {/* Project Header */}
               <div className="p-6 flex-1 space-y-4">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
                       {project.category}
                     </span>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
@@ -72,7 +72,7 @@ export default function ProjectsSection() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                    className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1f2937] transition-colors shrink-0"
                     aria-label={`GitHub repository for ${project.title}`}
                   >
                     <GithubIcon className="w-4 h-4" />
@@ -100,7 +100,7 @@ export default function ProjectsSection() {
                   <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                     {project.architectureHighlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-1.5">
-                        <CheckCircle className="w-3.5 h-3.5 text-indigo-500 shrink-0 mt-0.5" />
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -112,7 +112,7 @@ export default function ProjectsSection() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/50"
+                      className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-[#0b1120] text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-[#1f2937]"
                     >
                       {tech}
                     </span>
@@ -121,12 +121,12 @@ export default function ProjectsSection() {
               </div>
 
               {/* Footer */}
-              <div className="px-6 py-3 border-t border-slate-100 dark:border-slate-800/80 bg-slate-50/80 dark:bg-[#0f172a]/50 flex items-center justify-between">
+              <div className="px-6 py-3 border-t border-slate-100 dark:border-[#1f2937] bg-slate-50/80 dark:bg-[#0f172a]/50 flex items-center justify-between">
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>View Repository</span>

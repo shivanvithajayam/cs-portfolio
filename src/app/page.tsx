@@ -10,7 +10,7 @@ import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100 selection:bg-indigo-500 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen flex flex-col font-sans bg-white dark:bg-[#0b1120] text-slate-900 dark:text-[#F8FAFC] selection:bg-blue-600 selection:text-white transition-colors duration-200">
       <Navbar />
       
       <main className="flex-1">

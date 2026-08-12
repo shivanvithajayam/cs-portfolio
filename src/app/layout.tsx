@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className="antialiased min-h-screen flex flex-col font-sans bg-white dark:bg-[#090d16] text-slate-900 dark:text-slate-100"
+        className="antialiased min-h-screen flex flex-col font-sans bg-white dark:bg-[#0b1120] text-slate-900 dark:text-[#F8FAFC]"
       >
         {children}
       </body>

@@ -9,7 +9,7 @@ export default function ProjectsSection() {
   const { projects } = portfolioData;
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const categories = ["All", "Full Stack Web", "Android & Security", "Mobile & Cloud"];
+  const categories = ["All", "Full Stack Web", "Desktop & Java", "Android & Security", "Mobile & Cloud"];
 
   const filteredProjects = selectedCategory === "All"
     ? projects
@@ -26,7 +26,7 @@ export default function ProjectsSection() {
               Featured Engineering Projects
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Full-stack, mobile, and security software projects built using modern technology stacks.
+              Full-stack, desktop, mobile, and security software projects built using modern technology stacks.
             </p>
           </div>
 

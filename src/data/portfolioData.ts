@@ -20,7 +20,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Full Stack Web' | 'Android & Security' | 'Mobile & Cloud';
+  category: 'Full Stack Web' | 'Android & Security' | 'Mobile & Cloud' | 'Desktop & Java';
   period: string;
   description: string;
   technologies: string[];
@@ -82,7 +82,7 @@ export const portfolioData: {
     tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru. CGPA: 9.9 / 10.",
     bio: [
       "I am an undergraduate student pursuing my Bachelor of Engineering (B.E.) in Computer Science & Engineering at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.9 / 10 (till IV Semester).",
-      "My technical journey is driven by a deep curiosity for how software systems work from the inside out. I specialize in building full-stack web applications, mobile platforms, and security analysis utilities. My project portfolio includes BloodLine (a Next.js and PostgreSQL blood bank management platform), ShareBite (a Flutter and Firebase surplus food distribution app), Fake App Detection (an Android malware detection tool with Django backend), and ExpenseGo (a React finance tracker).",
+      "My technical journey is driven by a deep curiosity for how software systems work from the inside out. I specialize in building full-stack web applications, mobile platforms, Java desktop software, and security analysis utilities. My project portfolio includes BloodLine (a Next.js and PostgreSQL blood bank management platform), ExpenseGo (a JavaFX-based expense tracking application with automated DOCX/PPTX report generation), ShareBite (a Flutter and Firebase surplus food distribution app), and Fake App Detection (an Android malware detection tool with Django backend).",
       "Beyond writing code, I strongly value core computer science fundamentals—Data Structures & Algorithms, Operating Systems, Database Systems, and Computer Architecture. I approach problem-solving with a focus on code readability, modularity, and scalability.",
       "I actively participate in technical and academic campus communities. I serve as an Organizing Committee member for the IEEE Computer Society BMSCE, a member of Pentagram (the Mathematical Society of BMSCE), and a Core Committee member of the Fine Arts Club (FAC), organizing technical workshops and campus events."
     ],
@@ -124,20 +124,20 @@ export const portfolioData: {
     {
       id: "expense-go",
       title: "ExpenseGo – Personal Expense Tracker",
-      subtitle: "Full-stack application for managing personal finances and budget analytics",
-      category: "Full Stack Web",
+      subtitle: "JavaFX application supporting CSV logging & automated DOCX/PPTX reports",
+      category: "Desktop & Java",
       period: "2025",
-      description: "A web-based personal finance and expense tracking application built to manage daily transactions, analyze spending by category, and visualize budget insights.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+      description: "Developed a JavaFX-based expense tracking application supporting CSV-based logging, automated DOCX/PPTX report generation, and a modular project structure built on Object-Oriented Programming (OOP) principles.",
+      technologies: ["Java", "JavaFX", "CSV Logging", "Apache POI", "OOP Principles"],
       architectureHighlights: [
-        "Interactive category-wise spending analytics and visual budget summaries",
-        "Budget threshold monitoring and category breakdown visualization",
-        "Responsive transaction logging, search, and date-range filtering"
+        "CSV-based transaction logging and persistent expense record management",
+        "Automated DOCX and PPTX financial summary report generation",
+        "Modular project architecture designed following Object-Oriented Programming (OOP) principles"
       ],
       features: [
-        "Real-time expense categorization and balance tracking",
-        "Filterable transaction history with date and amount range queries",
-        "Clean analytical dashboard for personal budgeting and financial management"
+        "Expense tracking and category breakdown user interface",
+        "Automated export of transaction data into formatted DOCX documents and PPTX slideshows",
+        "Clean OOP module separation between data models and file export services"
       ],
       githubUrl: "https://github.com/shivanvithajayam/ExpenseTracker",
       featured: true
@@ -208,7 +208,7 @@ export const portfolioData: {
         { name: "Next.js", context: "Project Experience" },
         { name: "Flutter", context: "Project Experience" },
         { name: "Django", context: "Project Experience" },
-        { name: "JavaFX", context: "Core Coursework" }
+        { name: "JavaFX", context: "Project Experience" }
       ]
     },
     {

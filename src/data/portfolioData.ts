@@ -81,19 +81,19 @@ export const portfolioData: {
     name: "Jayam Shanmukha Shivanvitha",
     shortName: "Shivanvitha",
     title: "Computer Science & Engineering Student",
-    tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru. CGPA: 9.88 / 10.",
+    tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru. CGPA: 9.9 / 10.",
     bio: [
-      "I am a Computer Science & Engineering undergraduate at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.88 / 10 (till III Semester).",
+      "I am a Computer Science & Engineering undergraduate at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.9 / 10 (till IV Semester).",
       "My technical work spans full-stack web systems (Next.js, React, PostgreSQL, Supabase), mobile applications (Flutter, Firebase), and security tools (Android, Django, Python AST analysis).",
       "I am actively involved in technical communities as an Organizing Committee member for IEEE Computer Society BMSCE and a member of Pentagram (Mathematical Society of BMSCE)."
     ],
     availabilityStatus: "Seeking Summer / Fall 2026 Software Engineering & Technology Internships",
     university: "BMS College of Engineering, Bengaluru",
     degree: "B.E. in Computer Science & Engineering",
-    cgpa: "9.88 / 10 (Till III Semester)",
+    cgpa: "9.9 / 10 (Till IV Semester)",
     expectedGraduation: "2028",
     location: "Bengaluru, Karnataka",
-    email: "jayamshanmukha.cs4@bmsce.ac.in",
+    email: "jayamshanmukha.cs24@bmsce.ac.in",
     phone: "+91-6304177463",
     githubUrl: "https://github.com/shivanvithajayam",
     linkedinUrl: "https://linkedin.com/in/shivanvithajayam",
@@ -243,7 +243,7 @@ export const portfolioData: {
       degree: "B.E. in Computer Science & Engineering",
       location: "Bengaluru, Karnataka",
       period: "2024 — 2028 (Expected)",
-      score: "CGPA: 9.88 / 10 (Till III Semester)"
+      score: "CGPA: 9.9 / 10 (Till IV Semester)"
     },
     prior: [
       {
@@ -274,7 +274,7 @@ export const portfolioData: {
     {
       title: "Academic Excellence at BMSCE",
       category: "Academic Distinction",
-      description: "Achieved a CGPA of 9.88 / 10 through 3 semesters in B.E. Computer Science & Engineering."
+      description: "Achieved a CGPA of 9.9 / 10 through 4 semesters in B.E. Computer Science & Engineering."
     },
     {
       title: "Strong Foundation in Secondary Education",

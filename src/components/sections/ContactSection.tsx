@@ -23,10 +23,22 @@ export default function ContactSection() {
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
+
+    // Construct mailto URL to send email directly to personalInfo.email
+    const mailtoSubject = encodeURIComponent(
+      formData.subject ? `[Portfolio Inquiry] ${formData.subject}` : `[Portfolio Inquiry] Message from ${formData.name}`
+    );
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    
+    // Trigger mailto link in browser
+    window.location.href = `mailto:${personalInfo.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 600);
+    }, 400);
   };
 
   return (
@@ -129,10 +141,10 @@ export default function ContactSection() {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Message Sent!
+                  Opening Email Application...
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
-                  Thank you for reaching out. You can also send a direct email to <strong>{personalInfo.email}</strong>.
+                  Your message has been pre-filled into your default email app addressed directly to <strong>{personalInfo.email}</strong>.
                 </p>
                 <button
                   onClick={() => {
@@ -213,7 +225,7 @@ export default function ContactSection() {
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-colors shadow-xs disabled:opacity-50"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>{isSubmitting ? "Submitting..." : "Send Message"}</span>
+                  <span>{isSubmitting ? "Opening Email App..." : "Send Message"}</span>
                 </button>
               </form>
             )}

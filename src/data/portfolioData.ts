@@ -59,7 +59,6 @@ export interface EducationEntry {
 
 export interface EducationInfo {
   current: EducationEntry;
-  prior: EducationEntry[];
   coursework: string[];
 }
 
@@ -93,7 +92,7 @@ export const portfolioData: {
     cgpa: "9.9 / 10 (Till IV Semester)",
     expectedGraduation: "2028",
     location: "Bengaluru, Karnataka",
-    email: "jayamshanmukha.cs24@bmsce.ac.in",
+    email: "shivanvithajayam@gmail.com",
     phone: "+91-6304177463",
     githubUrl: "https://github.com/shivanvithajayam",
     linkedinUrl: "https://linkedin.com/in/shivanvithajayam",
@@ -120,7 +119,28 @@ export const portfolioData: {
         "Interactive analytics dashboards monitoring blood unit availability by type",
         "Real-time notifications for critical blood requests and transfer status updates"
       ],
-      githubUrl: "https://github.com/shivanvithajayam",
+      githubUrl: "https://github.com/shivanvithajayam/blood-bank",
+      featured: true
+    },
+    {
+      id: "expense-go",
+      title: "ExpenseGo – Personal Expense Tracker",
+      subtitle: "Full-stack application for managing personal finances and budget analytics",
+      category: "Full Stack Web",
+      period: "2025",
+      description: "A web-based personal finance and expense tracking application built to manage daily transactions, analyze spending by category, and visualize budget insights.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+      architectureHighlights: [
+        "Interactive category-wise spending analytics and visual budget summaries",
+        "Budget threshold monitoring and category breakdown visualization",
+        "Responsive transaction logging, search, and date-range filtering"
+      ],
+      features: [
+        "Real-time expense categorization and balance tracking",
+        "Filterable transaction history with date and amount range queries",
+        "Clean analytical dashboard for personal budgeting and financial management"
+      ],
+      githubUrl: "https://github.com/shivanvithajayam/ExpenseTracker",
       featured: true
     },
     {
@@ -142,7 +162,7 @@ export const portfolioData: {
         "Django backend API performing background risk evaluation and scoring",
         "User-facing detection results page displaying explainable risk indicators"
       ],
-      githubUrl: "https://github.com/shivanvithajayam",
+      githubUrl: "https://github.com/Kritika-Panwar-151/Hackathon-CODEIO",
       featured: true
     },
     {
@@ -164,7 +184,7 @@ export const portfolioData: {
         "Real-time status tracking for active food donations",
         "NGO portal to view nearby donation alerts, accept listings, and track history"
       ],
-      githubUrl: "https://github.com/shivanvithajayam",
+      githubUrl: "https://github.com/shivanvithajayam/share_bite",
       featured: true
     }
   ],
@@ -245,22 +265,6 @@ export const portfolioData: {
       period: "2024 — 2028 (Expected)",
       score: "CGPA: 9.9 / 10 (Till IV Semester)"
     },
-    prior: [
-      {
-        institution: "Narayana Junior College",
-        degree: "Intermediate Education",
-        location: "Anantapur, Andhra Pradesh",
-        period: "2022 — 2024",
-        score: "Percentage: 98%"
-      },
-      {
-        institution: "Sri Chaitanya Techno School",
-        degree: "High School (Class X)",
-        location: "Andhra Pradesh",
-        period: "2021 — 2022",
-        score: "Percentage: 96%"
-      }
-    ],
     coursework: [
       "Data Structures and Algorithms",
       "Computer Organization & Architecture",
@@ -275,11 +279,6 @@ export const portfolioData: {
       title: "Academic Excellence at BMSCE",
       category: "Academic Distinction",
       description: "Achieved a CGPA of 9.9 / 10 through 4 semesters in B.E. Computer Science & Engineering."
-    },
-    {
-      title: "Strong Foundation in Secondary Education",
-      category: "Academic Distinction",
-      description: "Scored 98% in Intermediate (Narayana Junior College) and 96% in High School (Sri Chaitanya Techno School)."
     },
     {
       title: "IEEE Computer Society Technical Involvement",

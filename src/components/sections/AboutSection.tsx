@@ -54,7 +54,7 @@ export default function AboutSection() {
               <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
-                  <span><strong>High Academic Standing:</strong> CGPA of 9.88 / 10 (till III Semester) in B.E. Computer Science & Engineering at BMSCE.</span>
+                  <span><strong>High Academic Standing:</strong> CGPA of {personalInfo.cgpa} in B.E. Computer Science & Engineering at BMSCE.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />

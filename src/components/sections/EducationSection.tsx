@@ -14,7 +14,7 @@ export default function EducationSection() {
             Education
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Academic programs, institutional performance, and core computer science coursework.
+            Academic degree program, institutional performance, and core computer science coursework.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export default function EducationSection() {
               </div>
               <div>
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-                  Current Undergraduate Program
+                  Undergraduate Program
                 </span>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0.5">
                   {education.current.degree}
@@ -39,10 +39,10 @@ export default function EducationSection() {
               </div>
             </div>
 
-            <div className="space-y-2 pt-2 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800">
+            <div className="space-y-3 pt-3 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 text-indigo-500 shrink-0" />
-                <span className="font-semibold text-slate-900 dark:text-white">{education.current.score}</span>
+                <span className="font-semibold text-sm text-slate-900 dark:text-white">{education.current.score}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-indigo-500 shrink-0" />
@@ -51,27 +51,6 @@ export default function EducationSection() {
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-indigo-500 shrink-0" />
                 <span>{education.current.location}</span>
-              </div>
-            </div>
-
-            {/* Prior Education History */}
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                Prior Academic History:
-              </span>
-              <div className="space-y-3">
-                {education.prior.map((entry, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 text-xs space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-900 dark:text-white">{entry.institution}</span>
-                      <span className="font-semibold text-indigo-600 dark:text-indigo-400">{entry.score}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-[11px]">
-                      <span>{entry.degree} • {entry.location}</span>
-                      <span>{entry.period}</span>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>

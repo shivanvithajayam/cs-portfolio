@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { Mail, Copy, Check, Send, Sparkles } from "lucide-react";
+import { Mail, Copy, Check, Send, Sparkles, AlertCircle } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 
 export default function ContactSection() {
@@ -11,6 +11,7 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -18,27 +19,61 @@ export default function ContactSection() {
     setTimeout(() => setCopied(false), 3000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
+    setErrorMessage(null);
 
-    // Construct mailto URL to send email directly to personalInfo.email
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject || `New Portfolio Message from ${formData.name}`,
+            message: formData.message,
+            from_name: `${formData.name} (CS Portfolio)`,
+          }),
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          setSubmitted(true);
+          setIsSubmitting(false);
+          return;
+        } else {
+          setErrorMessage(result.message || "Failed to send message via Web3Forms.");
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        setErrorMessage("Network error. Falling back to email client...");
+      }
+    }
+
+    // Fallback: Open mailto link directly in browser
     const mailtoSubject = encodeURIComponent(
       formData.subject ? `[Portfolio Inquiry] ${formData.subject}` : `[Portfolio Inquiry] Message from ${formData.name}`
     );
     const mailtoBody = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-    
-    // Trigger mailto link in browser
-    window.location.href = `mailto:${personalInfo.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
 
+    window.location.href = `mailto:${personalInfo.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+    
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 400);
+    }, 500);
   };
 
   return (
@@ -141,10 +176,10 @@ export default function ContactSection() {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Opening Email Application...
+                  Message Delivered!
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
-                  Your message has been pre-filled into your default email app addressed directly to <strong>{personalInfo.email}</strong>.
+                  Thank you for reaching out. Your message has been submitted to <strong>{personalInfo.email}</strong>.
                 </p>
                 <button
                   onClick={() => {
@@ -161,6 +196,13 @@ export default function ContactSection() {
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">
                   Send a Message
                 </h3>
+
+                {errorMessage && (
+                  <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
@@ -225,7 +267,7 @@ export default function ContactSection() {
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-colors shadow-xs disabled:opacity-50"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>{isSubmitting ? "Opening Email App..." : "Send Message"}</span>
+                  <span>{isSubmitting ? "Sending Message..." : "Send Message"}</span>
                 </button>
               </form>
             )}

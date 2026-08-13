@@ -31,7 +31,7 @@ export default function HeroSection() {
               {personalInfo.name}
             </h1>
             <p className="text-xl sm:text-2xl font-medium text-blue-600 dark:text-blue-400">
-              {personalInfo.degree} • CGPA: {personalInfo.cgpa}
+              {personalInfo.degree}
             </p>
           </div>
 

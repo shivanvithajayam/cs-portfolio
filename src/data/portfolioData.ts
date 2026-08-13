@@ -79,7 +79,7 @@ export const portfolioData: {
     name: "Jayam Shanmukha Shivanvitha",
     shortName: "Shivanvitha",
     title: "Computer Science & Engineering Student",
-    tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru. CGPA: 9.9 / 10.",
+    tagline: "B.E. Computer Science & Engineering student at BMS College of Engineering, Bengaluru.",
     bio: [
       "I am an undergraduate student pursuing my Bachelor of Engineering (B.E.) in Computer Science & Engineering at BMS College of Engineering, Bengaluru, maintaining a CGPA of 9.9 / 10 (till IV Semester).",
       "My technical journey is driven by a deep curiosity for how software systems work from the inside out. I specialize in building full-stack web applications, mobile platforms, Java desktop software, and security analysis utilities. My project portfolio includes BloodLine (a Next.js and PostgreSQL blood bank management platform), ExpenseGo (a JavaFX-based expense tracking application with automated DOCX/PPTX report generation), ShareBite (a Flutter and Firebase surplus food distribution app), and Fake App Detection (an Android malware detection tool with Django backend).",

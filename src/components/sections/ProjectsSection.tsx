@@ -11,6 +11,11 @@ export default function ProjectsSection() {
 
   const categories = ["All", "Full Stack Web", "Desktop & Java", "Android & Security", "Mobile & Cloud"];
 
+  const getCategoryCount = (category: string) => {
+    if (category === "All") return projects.length;
+    return projects.filter((p) => p.category === category).length;
+  };
+
   const filteredProjects = selectedCategory === "All"
     ? projects
     : projects.filter((p) => p.category === selectedCategory);
@@ -30,21 +35,34 @@ export default function ProjectsSection() {
             </p>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills with Counts */}
           <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-[#111827] p-1 rounded-xl text-xs font-medium border border-slate-200 dark:border-[#1f2937]">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded-lg transition-colors ${
-                  selectedCategory === cat
-                    ? "bg-white dark:bg-blue-600 text-slate-900 dark:text-white shadow-xs font-semibold"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const count = getCategoryCount(cat);
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
+                    isSelected
+                      ? "bg-white dark:bg-blue-600 text-slate-900 dark:text-white shadow-xs font-semibold"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  <span>{cat}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                      isSelected
+                        ? "bg-slate-100 dark:bg-blue-700 text-slate-800 dark:text-white"
+                        : "bg-slate-200 dark:bg-[#1f2937] text-slate-600 dark:text-slate-400"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
